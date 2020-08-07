@@ -19,17 +19,17 @@ public class GooglePlacesModel extends NetworkCore {
     public static class RequestModel{
         private String key;
         private String input;
-        private String inputType;
+        private String inputtype;
     }
 
     public GooglePlacesModel search(RequestModel model, Method method, int statusCode){
         HashMap requestParams = new HashMap();
         requestParams.put("key", model.getKey());
         requestParams.put("input", model.getInput());
-        requestParams.put("inputType", model.getInputType());
+        requestParams.put("inputtype", model.getInputtype());
         requestSpecBuilder.setBaseUri(GOOGLE_PlACES_SERVER + GOOGLE_PlACE_PATH + GOOGLE_PlACE_ENDPOINT_SEARCH)
                 .addQueryParams(requestParams);
-        sendRequestAndGetResponse(Method.GET, 200);
+        sendRequestAndGetResponse(method, statusCode);
         return this;
     }
 }
